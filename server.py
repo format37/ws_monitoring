@@ -24,6 +24,10 @@ async def call_test(request):
 		session.auth = HTTPBasicAuth(user, password)
 		client = Client(url,transport=Transport(session=session))		
 		answer = client.service.wsMonitorTest()
+		if answer == True:
+			answer = '1'
+		else:
+			answer = '0'			
 		
 	except Exception as e:
 		answer = 'Error: '+str(e)
