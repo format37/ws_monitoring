@@ -10,17 +10,18 @@ async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
 
 async def call_test(request):
-	url		= request.rel_url.query['url'] # 'http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl'
-	user	= request.rel_url.query['user'] # "ws1user"
-	password= request.rel_url.query['pass'] # "pass"
-	session = Session()
-	session.auth = HTTPBasicAuth(user, password)
-	client = Client(url,transport=Transport(session=session))
 
-	answer = 'no data'
-	
 	try:
-		
+	
+		url		= request.rel_url.query['url'] # 'http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl'
+		user	= request.rel_url.query['user'] # "ws1user"
+		password= request.rel_url.query['pass'] # "pass"
+		print('url',url)
+		print('user',user)
+		print('pass',password)
+		session = Session()
+		session.auth = HTTPBasicAuth(user, password)
+		client = Client(url,transport=Transport(session=session))		
 		answer = client.service.wsMonitorTest()
 		
 	except Exception as e:
