@@ -9,7 +9,7 @@ from aiohttp import web
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
 
-async def call_check(request):
+async def call_test(request):
 	url		= request.rel_url.query['url'] # 'http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl'
 	user	= request.rel_url.query['user'] # "ws1user"
 	password= request.rel_url.query['pass'] # "pass"
