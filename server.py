@@ -5,6 +5,7 @@ from zeep import Client
 from zeep.transports import Transport
 import asyncio
 from aiohttp import web
+import urllib
 
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
@@ -13,9 +14,9 @@ async def call_test(request):
 
 	try:
 	
-		url		= request.rel_url.query['url'] # 'http://10.2.4.141/test1c5/ws/ws1.1cws?wsdl'
-		user	= request.rel_url.query['user'] # "ws1user"
-		password= request.rel_url.query['pass'] # "pass"
+		url		= request.rel_url.query['url']
+		user	= urllib.parse.quote_plus(request.rel_url.query['user'])
+		password= urllib.parse.quote_plus(request.rel_url.query['pass'])
 		print('url',url)
 		print('user',user)
 		print('pass',password)
