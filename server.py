@@ -1,7 +1,10 @@
+PORT = '8082'
 from requests.auth import HTTPBasicAuth  # or HTTPDigestAuth, or OAuth1, etc.
 from requests import Session
 from zeep import Client
 from zeep.transports import Transport
+import asyncio
+from aiohttp import web
 
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
@@ -31,7 +34,7 @@ app.router.add_route('GET', '/test', call_test)
 
 loop = asyncio.get_event_loop()
 handler = app.make_handler()
-f = loop.create_server(handler, port='8082')
+f = loop.create_server(handler, port=PORT)
 srv = loop.run_until_complete(f)
 
 print('serving on', srv.sockets[0].getsockname())
