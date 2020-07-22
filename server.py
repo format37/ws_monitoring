@@ -1,4 +1,4 @@
-#PORT = '8082'
+#PORT = '80'
 from requests.auth import HTTPBasicAuth  # or HTTPDigestAuth, or OAuth1, etc.
 from requests import Session
 from zeep import Client
