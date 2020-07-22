@@ -6,6 +6,7 @@ from zeep.transports import Transport
 import asyncio
 from aiohttp import web
 import urllib
+import ssl
 
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
