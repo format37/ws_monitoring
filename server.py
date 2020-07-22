@@ -1,4 +1,4 @@
-#PORT = '80'
+#PORT = '8082'
 from requests.auth import HTTPBasicAuth  # or HTTPDigestAuth, or OAuth1, etc.
 from requests import Session
 from zeep import Client
@@ -9,7 +9,7 @@ import urllib
 import ssl
 
 SCRIPT_PATH	= '/home/dvasilev/projects/ws_monitoring/'
-WEBHOOK_PORT = 8082  # 443, 80, 88 or 8443 (port need to be 'open')
+WEBHOOK_PORT = 80  # 443, 80, 88 or 8443 (port need to be 'open')
 WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
 
 WEBHOOK_SSL_CERT = SCRIPT_PATH+'webhook_cert.pem'  # Path to the ssl certificate
