@@ -38,9 +38,13 @@ app = web.Application()
 app.router.add_route('GET', '/check', call_check)
 app.router.add_route('GET', '/test', call_test)
 
+# Build ssl context
+context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+context.load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV)
+
 loop = asyncio.get_event_loop()
 handler = app.make_handler()
-f = loop.create_server(handler, port=PORT)
+f = loop.create_server(handler, port=PORT, ssl_context=context,)
 srv = loop.run_until_complete(f)
 
 print('serving on', srv.sockets[0].getsockname())
