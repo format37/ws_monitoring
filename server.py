@@ -1,4 +1,3 @@
-#PORT = '8082'
 from requests.auth import HTTPBasicAuth  # or HTTPDigestAuth, or OAuth1, etc.
 from requests import Session
 from zeep import Client
@@ -10,8 +9,8 @@ import ssl
 
 SCRIPT_PATH	= '/home/dvasilev/projects/ws_monitoring/'
 CERT_PATH	= '/home/dvasilev/cert/'
-WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
-#WEBHOOK_PORT = 8082
+#WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
+WEBHOOK_PORT = 8082
 WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
 
 WEBHOOK_SSL_CERT = CERT_PATH+'fullchain.pem'  # Path to the ssl certificate
@@ -59,19 +58,3 @@ web.run_app(
     port=WEBHOOK_PORT,
     ssl_context=context,
 )
-
-'''
-loop = asyncio.get_event_loop()
-handler = app.make_handler()
-f = loop.create_server(handler, port=PORT, ssl_context=context,)
-srv = loop.run_until_complete(f)
-
-print('serving on', srv.sockets[0].getsockname())
-try:
-	loop.run_forever()
-except KeyboardInterrupt:
-	print("serving off...")
-finally:
-	loop.run_until_complete(handler.finish_connections(1.0))
-	srv.close()
-'''
