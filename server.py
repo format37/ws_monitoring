@@ -8,6 +8,11 @@ from aiohttp import web
 import urllib
 import ssl
 
+SCRIPT_PATH	= '/home/dvasilev/projects/ws_monitoring/'
+
+WEBHOOK_SSL_CERT = SCRIPT_PATH+'webhook_cert.pem'  # Path to the ssl certificate
+WEBHOOK_SSL_PRIV = SCRIPT_PATH+'webhook_pkey.pem'  # Path to the ssl private key
+
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
 
