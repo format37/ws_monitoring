@@ -9,8 +9,8 @@ import urllib
 import ssl
 
 SCRIPT_PATH	= '/home/dvasilev/projects/ws_monitoring/'
-#WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
-WEBHOOK_PORT = 8082
+WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
+#WEBHOOK_PORT = 8082
 WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
 
 WEBHOOK_SSL_CERT = SCRIPT_PATH+'webhook_cert.pem'  # Path to the ssl certificate
