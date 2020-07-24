@@ -5,8 +5,6 @@ import asyncio
 async def call_check(request):
 	return web.Response(text='ok',content_type="text/html")
 
-rover_init()
-
 app = web.Application()
 app.router.add_route('GET', '/check',	call_check)
 
