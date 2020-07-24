@@ -26,6 +26,7 @@ async def call_test(request):
 		url		= request.rel_url.query['url']
 		user	= urllib.parse.quote_plus(request.rel_url.query['user'])
 		password= urllib.parse.quote_plus(request.rel_url.query['pass'])
+		#password= request.rel_url.query['pass']
 		print('url',url)
 		print('user',user)
 		print('pass',password)
