@@ -1,4 +1,4 @@
-PORT = '8082'
+PORT = '8080'
 from aiohttp import web
 import asyncio
 
@@ -11,6 +11,6 @@ app.router.add_route('GET', '/check',	call_check)
 # Start aiohttp server
 web.run_app(
     app,
-    host='195.133.145.105',
+    #host='195.133.145.105',
     port=PORT,
 )
